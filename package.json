@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/josearmandojacq/loader-simulation/issues"
   },
-  "homepage": "https://github.com/josearmandojacq/loader-simulation#readme"
+  "homepage": "https://github.com/josearmandojacq/loader-simulation#readme",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "cp": "^0.2.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.5.3"
+  }
 }
