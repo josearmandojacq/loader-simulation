@@ -5,7 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "mkdirp docs && cp index.html docs/",
+    "build": "browserify index.js -o docs/bundle.js && node-sass style.scss docs/style.css."
   },
   "repository": {
     "type": "git",
