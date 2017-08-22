@@ -5,30 +5,34 @@
 
 function progressCallback(percent) {
 
-  divWithProgress.style.width = percent;
+  divWithProgress.style.width = percent + '%';
 }
 
 function finishCallback() {
 
-  divWithLoader.classList.add('finished');
+  divWithProgress.classList.add('finished');
 }
 
 function startSimulation() {
-  divWithLoader.classList.remove('finished');
+  divWithProgress.classList.remove('finished');
   simulateProgress(progressCallback, finishCallback);
 }
 
-
-
-
-
 //////////// Calling the functions////////
 var simulateProgress = require('simulate-progress');
-var divWithProgress = document.querySelector('.progress');
-var divWithLoader = document.querySelector('.loader');
+var buttons = document.querySelectorAll('button');
 
-var button = document.querySelector('button');
-button.addEventListener('click', startSimulation);
+buttons.forEach(function (button, index) {
+
+  button.addEventListener('click', function () {
+    console.log(this.parentNode);
+    divWithProgress = this.parentNode.childNodes[1];
+
+    startSimulation();
+  });
+});
+
+var divWithProgress;
 
 },{"simulate-progress":2}],2:[function(require,module,exports){
 module.exports = function simulateProgress(progress, finished) {
