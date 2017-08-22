@@ -5,15 +5,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "mkdirp docs && cp index.html docs/",
-    "build": "browserify index.js -o docs/bundle.js && node-sass style.scss docs/style.css."
+    "test": "jshint index.js",
+    "prebuild": "jshint && mkdirp docs && cp index.html docs/",
+    "build": "browserify index.js -o docs/bundle.js && node-sass style.scss docs/style.css",
+    "postbuild": "uglifyjs docs/bundle.js"
+
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/josearmandojacq/loader-simulation.git"
   },
-  "author": "",
+  "author": "Jose A",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/josearmandojacq/loader-simulation/issues"
@@ -23,6 +25,9 @@
     "browserify": "^14.4.0",
     "cp": "^0.2.0",
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.5.3",
+    "simulate-progress": "zeropaper/xt-simulate-progress",
+    "jshint": "latest",
+    "uglify-js": "latest"
   }
 }
